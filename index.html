@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memórias de Acopiara</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Patrick+Hand&family=Special+Elite&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f7f1e3;
+      --paper-dark: #efe6d5;
+      --ink: #3c2f2f;
+      --accent: #c17b4a;
+      --blue: #7ba3c9;
+      --green: #8fbc8f;
+      --pink: #e8a0a0;
+      --yellow: #e8c87a;
+      --tape: rgba(255, 250, 205, 0.85);
+      --shadow: rgba(60, 47, 47, 0.18);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: #e8dfd0;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.4) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(200,180,140,0.3) 0%, transparent 50%);
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Paper texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      background: var(--paper);
+      border-bottom: 3px solid var(--accent);
+      padding: 1rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 12px var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .logo-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f5d6a8, #e8c87a);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Caveat', cursive;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+      box-shadow: 2px 2px 0 var(--shadow);
+    }
+
+    .logo-text h1 {
+      font-family: 'Caveat', cursive;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .logo-text span {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    nav {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.15rem;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      transition: all 0.2s;
+      border: 2px solid transparent;
+    }
+
+    nav a:hover, nav a.active {
+      background: var(--yellow);
+      border-color: var(--accent);
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      background: var(--paper);
+      margin: 1.5rem auto;
+      max-width: 1100px;
+      padding: 2.5rem 2rem;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px var(--shadow);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 30px;
+      width: 80px;
+      height: 30px;
+      background: var(--tape);
+      transform: rotate(-8deg);
+      box-shadow: 1px 1px 3px var(--shadow);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: -15px;
+      right: 40px;
+      width: 70px;
+      height: 28px;
+      background: var(--tape);
+      transform: rotate(6deg);
+      box-shadow: 1px 1px 3px var(--shadow);
+    }
+
+    .hero h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero p {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.35rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+      color: #555;
+    }
+
+    .hero-hearts {
+      font-size: 1.5rem;
+      letter-spacing: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.2rem;
+      padding: 0.7rem 1.6rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 3px 3px 0 var(--shadow);
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 5px 5px 0 var(--shadow);
+    }
+
+    .btn-secondary {
+      background: var(--blue);
+      margin-left: 0.8rem;
+    }
+
+    /* ========== FILTERS ========== */
+    .filters {
+      max-width: 1100px;
+      margin: 0 auto 1.5rem;
+      padding: 0 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.05rem;
+      padding: 0.4rem 1rem;
+      background: var(--paper);
+      border: 2px dashed #bbb;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: var(--ink);
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--yellow);
+      border-style: solid;
+      border-color: var(--accent);
+    }
+
+    .search-box {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.1rem;
+      padding: 0.5rem 1rem;
+      border: 2px solid #ccc;
+      border-radius: 25px;
+      background: var(--paper);
+      width: 220px;
+      outline: none;
+    }
+
+    .search-box:focus {
+      border-color: var(--accent);
+    }
+
+    /* ========== STORIES GRID ========== */
+    .stories-section {
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
+
+    .section-title {
+      font-family: 'Caveat', cursive;
+      font-size: 2.4rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--ink);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '♡';
+      display: block;
+      font-size: 1.2rem;
+      color: var(--accent);
+    }
+
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .story-card {
+      background: var(--paper);
+      border-radius: 6px;
+      padding: 1.4rem;
+      box-shadow: 0 6px 18px var(--shadow);
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.25s, box-shadow 0.25s;
+      border: 1px solid #e0d6c2;
+    }
+
+    .story-card:hover {
+      transform: translateY(-6px) rotate(-0.5deg);
+      box-shadow: 0 12px 28px var(--shadow);
+    }
+
+    .story-card .tape {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      width: 70px;
+      height: 22px;
+      background: var(--tape);
+      box-shadow: 1px 1px 3px var(--shadow);
+    }
+
+    .story-card .tape.right {
+      left: auto;
+      right: 20px;
+      transform: rotate(4deg);
+    }
+
+    .story-card h3 {
+      font-family: 'Caveat', cursive;
+      font-size: 1.7rem;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+
+    .story-card .meta {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.8rem;
+      color: #888;
+      margin-bottom: 0.8rem;
+    }
+
+    .story-card .excerpt {
+      font-size: 0.95rem;
+      color: #444;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .story-card .tags {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      background: var(--paper-dark);
+      padding: 0.2rem 0.6rem;
+      border-radius: 12px;
+      color: #666;
+    }
+
+    .story-card .doodle {
+      position: absolute;
+      bottom: 10px;
+      right: 12px;
+      font-size: 1.4rem;
+      opacity: 0.5;
+    }
+
+    /* ========== MODAL ========== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(60, 47, 47, 0.55);
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal {
+      background: var(--paper);
+      max-width: 720px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 8px;
+      padding: 2rem 1.8rem;
+      position: relative;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      animation: modalIn 0.3s ease;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(30px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .modal .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #888;
+      line-height: 1;
+    }
+
+    .modal .close-btn:hover {
+      color: var(--accent);
+    }
+
+    .modal h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 2.4rem;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+      padding-right: 2rem;
+    }
+
+    .modal .meta {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.85rem;
+      color: #777;
+      margin-bottom: 1.2rem;
+    }
+
+    .modal .content {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      white-space: pre-line;
+    }
+
+    .modal .content p {
+      margin-bottom: 1rem;
+    }
+
+    .modal .highlight {
+      background: linear-gradient(120deg, #fceabb 0%, #f8b50033 100%);
+      padding: 0.8rem 1rem;
+      border-left: 4px solid var(--accent);
+      margin: 1.2rem 0;
+      font-style: italic;
+    }
+
+    .modal .tags {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    /* ========== FORM SECTION ========== */
+    .form-section {
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
+
+    .form-card {
+      background: var(--paper);
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px var(--shadow);
+      position: relative;
+    }
+
+    .form-card .tape-top {
+      position: absolute;
+      top: -14px;
+      left: 40px;
+      width: 90px;
+      height: 26px;
+      background: var(--tape);
+      transform: rotate(-5deg);
+      box-shadow: 1px 1px 3px var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.15rem;
+      margin-bottom: 0.3rem;
+      color: var(--ink);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      border: 2px solid #d4c9b0;
+      border-radius: 8px;
+      background: #fffdf8;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent);
+    }
+
+    .form-group textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      box-shadow: none;
+    }
+
+    .btn-outline:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* ========== TIMELINE ========== */
+    .timeline-section {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--accent), var(--blue), var(--green));
+      border-radius: 3px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.8rem;
+      background: var(--paper);
+      padding: 1.2rem 1.4rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px var(--shadow);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 1.4rem;
+      width: 14px;
+      height: 14px;
+      background: var(--accent);
+      border-radius: 50%;
+      border: 3px solid var(--paper);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .timeline-item .year {
+      font-family: 'Special Elite', cursive;
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-item h4 {
+      font-family: 'Caveat', cursive;
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    /* ========== MAP / PLACES ========== */
+    .places-section {
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
+
+    .places-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .place-card {
+      background: var(--paper);
+      padding: 1.3rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 14px var(--shadow);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .place-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .place-card .icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .place-card h4 {
+      font-family: 'Caveat', cursive;
+      font-size: 1.5rem;
+      color: var(--accent);
+    }
+
+    .place-card p {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.3rem;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--ink);
+      color: #f0e6d6;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 2rem;
+    }
+
+    footer p {
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    footer .small {
+      font-size: 0.85rem;
+      opacity: 0.7;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    /* ========== TOAST ========== */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--accent);
+      color: white;
+      padding: 0.9rem 1.6rem;
+      border-radius: 30px;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 1.15rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      z-index: 300;
+      transition: transform 0.35s ease;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 700px) {
+      .hero h2 { font-size: 2.2rem; }
+      .logo-text h1 { font-size: 1.4rem; }
+      nav { width: 100%; justify-content: center; }
+      .btn-secondary { margin-left: 0; margin-top: 0.5rem; }
+    }
+
+    /* Decorative doodles */
+    .doodle-sun { color: #e8a83a; }
+    .doodle-heart { color: var(--pink); }
+    .doodle-house { color: var(--blue); }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="#" class="logo" onclick="showSection('home')">
+      <div class="logo-circle">M</div>
+      <div class="logo-text">
+        <h1>Memórias de Acopiara</h1>
+        <span>histórias reais • pessoas • lugares</span>
+      </div>
+    </a>
+    <nav>
+      <a href="#" class="active" data-section="home" onclick="showSection('home')">Início</a>
+      <a href="#" data-section="stories" onclick="showSection('stories')">Histórias</a>
+      <a href="#" data-section="places" onclick="showSection('places')">Lugares</a>
+      <a href="#" data-section="timeline" onclick="showSection('timeline')">Linha do Tempo</a>
+      <a href="#" data-section="contar" onclick="showSection('contar')">Contar a minha</a>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-hearts">♡  ♡  ♡</div>
+    <h2>Acopiara é feita de pessoas,<br>lugares e lembranças</h2>
+    <p>Histórias reais de quem viveu, caminhou e sentiu esta cidade.  
+    Cada memória guardada aqui é um pedaço da nossa identidade.</p>
+    <button class="btn" onclick="showSection('contar')">Contar minha história</button>
+    <button class="btn btn-secondary" onclick="showSection('stories')">Ver memórias</button>
+  </section>
+
+  <!-- FILTERS + STORIES -->
+  <section class="stories-section" id="stories">
+    <h2 class="section-title">As memórias guardadas</h2>
+
+    <div class="filters">
+      <input type="text" class="search-box" id="searchInput" placeholder="Buscar por palavra..." oninput="filterStories()">
+      <button class="filter-btn active" data-filter="all" onclick="setFilter('all')">Todas</button>
+      <button class="filter-btn" data-filter="familia" onclick="setFilter('familia')">Família</button>
+      <button class="filter-btn" data-filter="infancia" onclick="setFilter('infancia')">Infância</button>
+      <button class="filter-btn" data-filter="lugares" onclick="setFilter('lugares')">Lugares</button>
+      <button class="filter-btn" data-filter="cuidado" onclick="setFilter('cuidado')">Cuidado</button>
+      <button class="filter-btn" data-filter="mudanca" onclick="setFilter('mudanca')">Mudança</button>
+    </div>
+
+    <div class="stories-grid" id="storiesGrid">
+      <!-- Cards gerados por JS -->
+    </div>
+  </section>
+
+  <!-- PLACES -->
+  <section class="places-section" id="places" style="display:none;">
+    <h2 class="section-title">Lugares que guardam histórias</h2>
+    <div class="places-grid">
+      <div class="place-card">
+        <div class="icon">🛤️</div>
+        <h4>Rua Bom Sucesso</h4>
+        <p>Estrada de terra, caminho a pé para a escola e para as festas. Quando chovia, a volta ficava ainda mais difícil.</p>
+      </div>
+      <div class="place-card">
+        <div class="icon">🏠</div>
+        <h4>Nova Acopiara</h4>
+        <p>Onde muitos encontraram tranquilidade, comunidade menor e o sentimento de “meu lugar”.</p>
+      </div>
+      <div class="place-card">
+        <div class="icon">⛪</div>
+        <h4>Igreja e centro</h4>
+        <p>Ponto de encontro, festas e conversas. Em cidade pequena, as notícias circulam rápido.</p>
+      </div>
+      <div class="place-card">
+        <div class="icon">🌳</div>
+        <h4>Caminhos antigos</h4>
+        <p>Trilhas, estradas de terra e a memória de quem andava de madrugada voltando das festas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section" id="timeline" style="display:none;">
+    <h2 class="section-title">Linha do tempo das memórias</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="year">Décadas atrás</div>
+        <h4>Os caminhos da Rua Bom Sucesso</h4>
+        <p>Estrada de terra, escola longe, caminhadas sob chuva e noites sem energia. A vida era o caminho.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">Anos 60–70</div>
+        <h4>Um avô forte e as primeiras falhas de memória</h4>
+        <p>Mesmo com quase setenta anos, ainda era um homem muito forte. O Alzheimer começou a roubar as lembranças simples do dia a dia.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">Mudança</div>
+        <h4>Encontrando o seu lugar</h4>
+        <p>Chegada em Acopiara, dificuldade de adaptação, povo mais fechado… e depois a descoberta de Nova Acopiara e da tranquilidade.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="year">Hoje</div>
+        <h4>As histórias que a família continua contando</h4>
+        <p>O Alzheimer fez esquecer muitas coisas, mas as histórias vividas ao lado dele continuam sendo lembradas por quem esteve presente.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="form-section" id="contar" style="display:none;">
+    <h2 class="section-title">Contar a minha história</h2>
+    <div class="form-card">
+      <div class="tape-top"></div>
+      <form id="storyForm" onsubmit="submitStory(event)">
+        <div class="form-group">
+          <label for="title">Título da memória *</label>
+          <input type="text" id="title" required placeholder="Ex: As tardes na casa da vovó">
+        </div>
+        <div class="form-group">
+          <label for="author">Seu nome (ou como quer ser chamado)</label>
+          <input type="text" id="author" placeholder="Pode ser só o primeiro nome">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="year">Época aproximada</label>
+            <input type="text" id="year" placeholder="Ex: 1985, década de 90...">
+          </div>
+          <div class="form-group">
+            <label for="place">Lugar</label>
+            <input type="text" id="place" placeholder="Ex: Rua Bom Sucesso, Nova Acopiara...">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="category">Tema principal</label>
+          <select id="category">
+            <option value="familia">Família</option>
+            <option value="infancia">Infância</option>
+            <option value="lugares">Lugares</option>
+            <option value="cuidado">Cuidado / Saúde</option>
+            <option value="mudanca">Mudança / Adaptação</option>
+            <option value="outros">Outros</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="content">Sua história *</label>
+          <textarea id="content" required placeholder="Escreva com o coração. Pode ser longa ou curta. O importante é ser real."></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn">Guardar esta memória</button>
+          <button type="button" class="btn btn-outline" onclick="previewStory()">Ver como fica</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal" id="modalContent">
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>♡ Memórias de Acopiara ♡</p>
+    <p class="small">Um projeto coletivo para guardar as histórias de quem faz a cidade.<br>
+    Feito com carinho por pessoas da comunidade.</p>
+  </footer>
+
+  <script>
+    // ========== DADOS DAS HISTÓRIAS (das imagens) ==========
+    const defaultStories = [
+      {
+        id: 1,
+        title: "As lembranças do meu avô",
+        author: "Neto(a)",
+        year: "Décadas recentes",
+        place: "Acopiara",
+        category: "cuidado",
+        tags: ["família", "Alzheimer", "cuidado"],
+        excerpt: "Com o passar do tempo, meu avô começou a desenvolver Alzheimer. Aos poucos, ele foi perdendo a memória e esquecendo coisas simples do dia a dia...",
+        content: `Com o passar do tempo, meu avô começou a desenvolver Alzheimer. Aos poucos, ele foi perdendo a memória e esquecendo coisas simples do dia a dia. Às vezes, esquecia de tomar banho ou de comer. Mesmo quando já tinha feito uma refeição, podia dizer que ainda não tinha comido e que estava morrendo de fome. A família precisava estar sempre por perto para ajudá-lo e lembrá-lo das coisas.
+
+Mas algumas situações iam muito além da rotina. Às vezes, depois de dormir na rede, ele acordava e saía de casa sem perceber o que estava fazendo. Em algumas dessas ocasiões, acabava andando pelas ruas sem roupa, e os netos precisavam correr atrás dele para trazê-lo de volta para casa.
+
+E não era fácil. Mesmo já tendo seus sessenta e poucos ou quase setenta anos, ele continuava sendo um homem muito forte. Quando tentavam levá-lo de volta, ele resistia e, algumas vezes, até tentava bater em quem estava tentando ajudá-lo. Era preciso muita paciência e esforço para conseguir fazê-lo voltar.
+
+Foram momentos difíceis, mas que ficaram marcados na memória da família. O Alzheimer fez com que meu avô esquecesse muitas coisas, mas as histórias vividas ao lado dele continuam sendo lembradas por aqueles que estiveram presentes.`
+      },
+      {
+        id: 2,
+        title: "Os caminhos da Rua Bom Sucesso",
+        author: "Morador(a)",
+        year: "Décadas atrás",
+        place: "Rua Bom Sucesso",
+        category: "infancia",
+        tags: ["infância", "caminhos", "escola", "festas"],
+        excerpt: "Quando a gente morava na Rua Bom Sucesso, as coisas eram bem diferentes. A estrada ainda era de terra e a escola ficava longe de casa. Todos os dias, o caminho até lá era feito a pé...",
+        content: `Quando a gente morava na Rua Bom Sucesso, as coisas eram bem diferentes. A estrada ainda era de terra e a escola ficava longe de casa. Todos os dias, o caminho até lá era feito a pé.
+
+Quando chovia, a volta para casa ficava ainda mais difícil. Era preciso enfrentar a estrada de terra e seguir caminhando mesmo com a chuva.
+
+Também havia épocas em que faltava energia, e a escuridão fazia parte da rotina.
+
+Até para ir às festas era preciso pensar na volta. Como muitas vezes elas terminavam de madrugada, a gente só podia ir quando havia um grupo grande de pessoas para voltar junto. Ninguém queria enfrentar o caminho sozinho durante a madrugada.
+
+Muitas vezes, depois da festa, o caminho de volta também era feito a pé. E mesmo depois de passar horas andando e dançando, ainda tinha o salto alto para enfrentar o caminho de casa.
+
+Hoje, tudo isso pode parecer muito distante. Mas, naquela época, era simplesmente a nossa vida. A estrada de terra, as caminhadas, as noites sem energia e as festas fazem parte das lembranças de uma época que ficou guardada na memória.`
+      },
+      {
+        id: 3,
+        title: "Encontrando o seu lugar",
+        author: "Moradora",
+        year: "Anos de mudança",
+        place: "Acopiara / Nova Acopiara",
+        category: "mudanca",
+        tags: ["mudança", "comunidade", "adaptação"],
+        excerpt: "Quando ela se mudou para cá, teve dificuldade para se adaptar. O lugar era diferente do que estava acostumada, principalmente pela maneira como as pessoas se relacionavam...",
+        content: `Quando ela se mudou para cá, teve dificuldade para se adaptar. O lugar era diferente do que estava acostumada, principalmente pela maneira como as pessoas se relacionavam.
+
+O povo daqui era mais fechado. As pessoas já tinham seus próprios grupos, suas amizades e seus círculos, e não era tão fácil para quem chegava de fora se aproximar. Para ela, essa característica da comunidade tornou o começo ainda mais difícil.
+
+Outra coisa que chamou sua atenção foi a quantidade de conversas entre as pessoas. Em uma cidade pequena, as notícias circulavam rapidamente e, muitas vezes, parecia que todo mundo sabia da vida de todo mundo. Por causa disso, ela não gostou muito quando chegou.
+
+Com o tempo, porém, a família se mudou para Nova Acopiara. E foi lá que ela encontrou um lugar de que gostava mais. Por ser uma comunidade menor e com poucas pessoas, ela se sentiu mais confortável e encontrou a tranquilidade que procurava.
+
+Às vezes, mudar de lugar também é uma forma de encontrar onde realmente nos sentimos bem. Cada pessoa vive a comunidade de uma maneira diferente e essas experiências também fazem parte da história de quem passa por ela.`
+      },
+      {
+        id: 4,
+        title: "Quando a memória começou a falhar",
+        author: "Família",
+        year: "Recente",
+        place: "Acopiara",
+        category: "cuidado",
+        tags: ["Alzheimer", "família", "cuidado"],
+        excerpt: "Com o passar do tempo, meu avô começou a desenvolver Alzheimer. Aos poucos, ele foi perdendo a memória e esquecendo coisas que antes faziam parte da sua rotina...",
+        content: `Com o passar do tempo, meu avô começou a desenvolver Alzheimer. Aos poucos, ele foi perdendo a memória e esquecendo coisas que antes faziam parte da sua rotina.
+
+Ele esquecia de tomar banho. Esquecia de comer. E, às vezes, mesmo depois de ter acabado de comer, dizia que ainda estava morrendo de fome. A família precisava estar sempre por perto.
+
+Mas havia situações que exigiam ainda mais atenção. Às vezes, depois de dormir na rede, ele acordava e simplesmente saía de casa. Sem perceber o que estava fazendo.
+
+E foi assim que, algumas vezes, ele acabava saindo pelado pelas ruas. Os netos precisavam correr atrás dele para tentar trazê-lo de volta para casa.
+
+Só que tinha um detalhe: ele era muito forte. Mesmo já tendo mais de sessenta anos, ninguém conseguia simplesmente pegá-lo e levá-lo para casa.
+
+O Alzheimer fez meu avô esquecer muitas coisas. Mas deixou para nós histórias que jamais serão esquecidas. Porque algumas memórias permanecem justamente nas histórias que a família continua contando.`
+      }
+    ];
+
+    // ========== ESTADO ==========
+    let stories = [];
+    let currentFilter = 'all';
+    let currentSearch = '';
+
+    // ========== INICIALIZAÇÃO ==========
+    function init() {
+      const saved = localStorage.getItem('memoriasAcopiara');
+      if (saved) {
+        stories = JSON.parse(saved);
+      } else {
+        stories = [...defaultStories];
+        saveStories();
+      }
+      renderStories();
+    }
+
+    function saveStories() {
+      localStorage.setItem('memoriasAcopiara', JSON.stringify(stories));
+    }
+
+    // ========== RENDER ==========
+    function renderStories() {
+      const grid = document.getElementById('storiesGrid');
+      let filtered = stories;
+
+      if (currentFilter !== 'all') {
+        filtered = filtered.filter(s => s.category === currentFilter || (s.tags && s.tags.includes(currentFilter)));
+      }
+
+      if (currentSearch.trim()) {
+        const q = currentSearch.toLowerCase();
+        filtered = filtered.filter(s =>
+          s.title.toLowerCase().includes(q) ||
+          s.content.toLowerCase().includes(q) ||
+          (s.place && s.place.toLowerCase().includes(q)) ||
+          (s.author && s.author.toLowerCase().includes(q))
+        );
+      }
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<p style="grid-column:1/-1;text-align:center;font-family:'Patrick Hand',cursive;font-size:1.3rem;color:#888;padding:2rem;">Nenhuma memória encontrada com esses filtros… Que tal contar a sua?</p>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(s => `
+        <article class="story-card" onclick="openStory(${s.id})">
+          <div class="tape"></div>
+          <h3>${escapeHtml(s.title)}</h3>
+          <div class="meta">${escapeHtml(s.author || 'Anônimo')} • ${escapeHtml(s.year || '')} • ${escapeHtml(s.place || '')}</div>
+          <p class="excerpt">${escapeHtml(s.excerpt || s.content.substring(0, 160) + '...')}</p>
+          <div class="tags">
+            ${(s.tags || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}
+          </div>
+          <span class="doodle">♡</span>
+        </article>
+      `).join('');
+    }
+
+    function escapeHtml(text) {
+      if (!text) return '';
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // ========== FILTROS ==========
+    function setFilter(filter) {
+      currentFilter = filter;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === filter);
+      });
+      renderStories();
+    }
+
+    function filterStories() {
+      currentSearch = document.getElementById('searchInput').value;
+      renderStories();
+    }
+
+    // ========== MODAL ==========
+    function openStory(id) {
+      const story = stories.find(s => s.id === id);
+      if (!story) return;
+
+      const body = document.getElementById('modalBody');
+      body.innerHTML = `
+        <h2>${escapeHtml(story.title)}</h2>
+        <div class="meta">${escapeHtml(story.author || 'Anônimo')} • ${escapeHtml(story.year || '')} • ${escapeHtml(story.place || '')}</div>
+        <div class="content">${formatContent(story.content)}</div>
+        <div class="tags">
+          ${(story.tags || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}
+        </div>
+      `;
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function formatContent(text) {
+      // Quebra em parágrafos e destaca alguns trechos
+      return text.split(/\n\n+/).map(p => {
+        p = p.trim();
+        if (!p) return '';
+        // Destaca frases que começam com certas palavras ou são curtas emocionais
+        if (p.length < 120 && (p.includes('difíceis') || p.includes('lembranças') || p.includes('memória') || p.includes('hoje'))) {
+          return `<div class="highlight">${escapeHtml(p)}</div>`;
+        }
+        return `<p>${escapeHtml(p)}</p>`;
+      }).join('');
+    }
+
+    function closeModal(e) {
+      if (e && e.target !== document.getElementById('modalOverlay') && !e.target.classList.contains('close-btn')) return;
+      document.getElementById('modalOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // ========== NAVEGAÇÃO ==========
+    function showSection(sectionId) {
+      // Esconde todas as seções principais
+      ['home', 'stories', 'places', 'timeline', 'contar'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      });
+
+      // Mostra a escolhida
+      const target = document.getElementById(sectionId);
+      if (target) {
+        target.style.display = sectionId === 'home' || sectionId === 'stories' ? 'block' : 
+                               sectionId === 'places' || sectionId === 'timeline' || sectionId === 'contar' ? 'block' : 'block';
+        // Ajuste especial: home e stories ficam juntos na prática
+        if (sectionId === 'home') {
+          document.getElementById('home').style.display = 'block';
+          document.getElementById('stories').style.display = 'block';
+        } else if (sectionId === 'stories') {
+          document.getElementById('home').style.display = 'none';
+          document.getElementById('stories').style.display = 'block';
+        } else {
+          document.getElementById('home').style.display = 'none';
+          document.getElementById('stories').style.display = 'none';
+          target.style.display = 'block';
+        }
+      }
+
+      // Atualiza nav
+      document.querySelectorAll('nav a').forEach(a => {
+        a.classList.toggle('active', a.dataset.section === sectionId);
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ========== FORMULÁRIO ==========
+    function submitStory(e) {
+      e.preventDefault();
+      const title = document.getElementById('title').value.trim();
+      const author = document.getElementById('author').value.trim() || 'Anônimo';
+      const year = document.getElementById('year').value.trim();
+      const place = document.getElementById('place').value.trim();
+      const category = document.getElementById('category').value;
+      const content = document.getElementById('content').value.trim();
+
+      if (!title || !content) {
+        showToast('Preencha pelo menos o título e a história ♡');
+        return;
+      }
+
+      const newStory = {
+        id: Date.now(),
+        title,
+        author,
+        year,
+        place,
+        category,
+        tags: [category],
+        excerpt: content.substring(0, 150) + (content.length > 150 ? '...' : ''),
+        content
+      };
+
+      stories.unshift(newStory);
+      saveStories();
+      renderStories();
+
+      document.getElementById('storyForm').reset();
+      showToast('Memória guardada com carinho! ♡');
+      setTimeout(() => showSection('stories'), 1200);
+    }
+
+    function previewStory() {
+      const title = document.getElementById('title').value.trim() || 'Sem título';
+      const author = document.getElementById('author').value.trim() || 'Anônimo';
+      const year = document.getElementById('year').value.trim();
+      const place = document.getElementById('place').value.trim();
+      const content = document.getElementById('content').value.trim() || 'Escreva algo para ver o preview...';
+
+      const body = document.getElementById('modalBody');
+      body.innerHTML = `
+        <h2>${escapeHtml(title)}</h2>
+        <div class="meta">${escapeHtml(author)} • ${escapeHtml(year)} • ${escapeHtml(place)}</div>
+        <div class="content"><p>${escapeHtml(content)}</p></div>
+        <p style="margin-top:1.5rem;font-family:'Patrick Hand',cursive;color:#888;font-size:1.1rem;">← Esta é só uma prévia. Clique em “Guardar esta memória” para salvar de verdade.</p>
+      `;
+      document.getElementById('modalOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // ========== TOAST ==========
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    // ========== TECLA ESC ==========
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeModal({ target: document.getElementById('modalOverlay') });
+    });
+
+    // Inicia
+    init();
+  </script>
+</body>
+</html>
